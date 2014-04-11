@@ -1,4 +1,4 @@
-hmn-handbook
+HMN.MD Handbook Theme
 ============
 
-A Theme for the Human Made Handbook Site
+This theme will replace what's currently on http://handbook.hmn.md/
