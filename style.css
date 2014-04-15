@@ -412,7 +412,6 @@ a.pagination-item:hover {
 		width: 18rem;
 		text-align: left;
 	}
-
 }
 
 #secondary a {
@@ -422,11 +421,10 @@ a.pagination-item:hover {
 @media (min-width: 48rem) {
 	#secondary .container {
 		position: absolute;
-		right: 1rem;
-		bottom: 1rem;
-		left: 1rem;
+		top: 50%;
+		display: table-cell;
+		vertical-align: middle;
 	}
-
 }
 
 /* Sidebar Nav */

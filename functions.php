@@ -5,6 +5,51 @@
  * @package Handbook
  */
 
+function hm_handbook_enqueue_scripts() {
+		$hm_handbook_data = array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			'ajaxnonce' => wp_create_nonce( 'hm-handbook-live-search' )
+		);
+
+		wp_enqueue_script( 'hm-handbook-live-search',  get_stylesheet_directory_uri() . '/js/live-search.js', array('jquery') );
+		wp_localize_script( 'hm-handbook-live-search', 'hm_handbook', $hm_handbook_data );
+
+		wp_enqueue_style( 'hm-handbook-live-search', get_stylesheet_directory_uri() . '/css/live-search.css' );
+}
+add_action( 'wp_enqueue_scripts', 'hm_handbook_enqueue_scripts' );
+
+function hm_handbook_live_search_ajax() {
+	
+	check_ajax_referer( 'hm-handbook-live-search', 'security' );
+	
+	global $wpdb;
+	
+	// Get Search
+	$q = esc_html( $_POST['hm_handbook_search_query'] );
+	
+	$search_query_args = array(
+		's' => $q,
+		'post_type' => array('post', 'page'),
+		'posts_per_page' => -1
+	);
+	
+	// Live Search Query
+	$search_query = new WP_Query( $search_query_args );
+
+	if ( $search_query->have_posts() ) {
+		$search_html = '';
+		while ( $search_query->have_posts() ) {
+			$search_query->the_post();
+			$search_html .= '<li class="result"><a href="'. get_permalink() .'">'. get_the_title() .'</a></li>';
+		}
+		echo json_encode($search_html);
+	}
+	
+	wp_reset_postdata();
+	exit;
+}
+add_action( 'wp_ajax_hm_handbook', 'hm_handbook_live_search_ajax' );
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
