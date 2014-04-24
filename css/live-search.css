@@ -51,7 +51,8 @@
 	text-align: center;
 }
 
-#live-search-results li:hover {
+#live-search-results li:hover,
+#live-search-results li.selected {
 	background-color: #F7F7F7;
 }
 
