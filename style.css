@@ -412,6 +412,13 @@ a.pagination-item:hover {
 		bottom: 0;
 		width: 18rem;
 		text-align: left;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.admin-bar #secondary {
+		top: 32px;
 	}
 }
 
@@ -421,10 +428,7 @@ a.pagination-item:hover {
 
 @media (min-width: 48rem) {
 	#secondary .container {
-		position: absolute;
-		top: 50%;
-		display: table-cell;
-		vertical-align: middle;
+		overflow: auto;
 	}
 }
 
