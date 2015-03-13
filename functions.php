@@ -142,6 +142,22 @@ function handbook_scripts() {
 add_action( 'wp_enqueue_scripts', 'handbook_scripts' );
 
 /**
+ * 	Add the Favicon to the head.
+ *
+ *	Added to theme, admin and login.
+ */
+function hm_handbook_favicon() { 
+
+	?>
+	<link rel="shortcut icon" type="image/x-icon" href="<?php bloginfo( 'stylesheet_directory' ); ?>/images/favicon.ico" />
+	<?php 
+
+}
+add_action( 'wp_head', 'hm_handbook_favicon' );
+add_action( 'admin_head', 'hm_handbook_favicon' );
+add_action( 'login_head', 'hm_handbook_favicon' );
+
+/**
  * Implement the Custom Header feature.
  */
 //require get_template_directory() . '/inc/custom-header.php';
