@@ -12,6 +12,9 @@
 		<div class="site-info">
 			<a href="http://hmn.md/" title="Human Made"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/hm-sketch.png" /></a>
 		</div><!-- .site-info -->
+
+		<?php dynamic_sidebar( 'footer-sidebar-1' ); ?>
+
 	</footer><!-- #colophon -->
 
 </div><!-- #content -->
