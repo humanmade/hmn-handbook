@@ -8,12 +8,23 @@
  */
 ?>
 
+	<div id="three-widgets" class="site-footer">
+
+		<?php dynamic_sidebar( 'footer-sidebar-1' ); ?>
+
+	</div>
+
 	<footer id="colophon" class="site-footer" role="contentinfo">
+
 		<div class="site-info">
 			<a href="http://hmn.md/" title="Human Made"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/hm-sketch.png" /></a>
 		</div><!-- .site-info -->
 
-		<?php dynamic_sidebar( 'footer-sidebar-1' ); ?>
+		<div class="footer-2">
+
+			<?php dynamic_sidebar( 'footer-sidebar-2' ); ?>
+
+		</div>
 
 	</footer><!-- #colophon -->
 
