@@ -15,6 +15,7 @@ function hm_handbook_enqueue_scripts() {
 		wp_localize_script( 'hm-handbook-live-search', 'hm_handbook', $hm_handbook_data );
 
 		wp_enqueue_style( 'hm-handbook-live-search', get_stylesheet_directory_uri() . '/css/live-search.css' );
+		wp_enqueue_style( 'hm-handbook-print', get_template_directory_uri() . '/print.css', array('handbook-style'), '', 'print' );
 }
 add_action( 'wp_enqueue_scripts', 'hm_handbook_enqueue_scripts' );
 
