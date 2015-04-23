@@ -29,7 +29,8 @@ License URI: license.txt
 	article li.page_item,
 	footer.entry-footer,
 	#comments,
-	footer#colophon {
+	footer#colophon,
+	#three-widgets {
 		display: none;
 	}
 

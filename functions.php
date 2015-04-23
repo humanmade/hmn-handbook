@@ -124,8 +124,17 @@ function handbook_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 	register_sidebar( array(
-		'name'          => __( 'Footer Sidebar', 'handbook' ),
+		'name'          => __( 'Footer Sidebar Pages List', 'handbook' ),
 		'id'            => 'footer-sidebar-1',
+		'description'   => __( 'To show our content' ),
+		'before_widget' => '<aside id="%1$s" class="widget-a %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Footer Sidebar Collaboration', 'handbook' ),
+		'id'            => 'footer-sidebar-2',
 		'description'   => __( 'To encourage collaboration' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',

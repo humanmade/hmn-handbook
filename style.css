@@ -456,13 +456,30 @@ a.sidebar-nav-item:focus {
 
 /* Footer */
 .site-footer {
-    margin: 0;
-    padding: 4rem 0;
-    text-align: center;
+	margin: 0;
+	padding: 4rem 0;
 }
 
 .site-info {
 	width: 150px;
-	height: 150px;
 	margin: 0 auto;
+}
+
+.widget_listcategorypostswidget ul, .widget-a ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+#colophon aside.widget {
+	margin-top: 0px;
+}
+
+#three-widgets aside.widget-a {
+	padding: 1rem; 
+	width: 33%;
+	float: left;
+}
+
+.footer-2 {
+	text-align: center;
 }
