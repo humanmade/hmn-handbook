@@ -5,19 +5,9 @@
  * @package Handbook
  */
 
-function hm_handbook_enqueue_scripts() {
-		$hm_handbook_data = array(
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-			'ajaxnonce' => wp_create_nonce( 'hm-handbook-live-search' )
-		);
-
-		wp_enqueue_script( 'hm-handbook-live-search',  get_stylesheet_directory_uri() . '/js/live-search.js', array('jquery') );
-		wp_localize_script( 'hm-handbook-live-search', 'hm_handbook', $hm_handbook_data );
-
-		wp_enqueue_style( 'hm-handbook-live-search', get_stylesheet_directory_uri() . '/css/live-search.css' );
-		wp_enqueue_style( 'hm-handbook-print', get_template_directory_uri() . '/print.css', array('handbook-style'), '', 'print' );
+if ( ! defined( 'HANDBOOK_THEME_VERSION' ) ) {
+	define( 'HANDBOOK_THEME_VERSION', wp_get_theme()->get( 'Version' ) );
 }
-add_action( 'wp_enqueue_scripts', 'hm_handbook_enqueue_scripts' );
 
 function hm_handbook_live_search_ajax() {
 	
@@ -148,15 +138,25 @@ add_action( 'widgets_init', 'handbook_widgets_init' );
  * Enqueue scripts and styles.
  */
 function handbook_scripts() {
-	wp_enqueue_style( 'handbook-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'handbook-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	$hm_handbook_data = array(
+		'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		'ajaxnonce' => wp_create_nonce( 'hm-handbook-live-search' )
+	);
 
-	wp_enqueue_script( 'handbook-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'handbook-navigation', get_template_directory_uri() . '/js/navigation.js', array(), HANDBOOK_THEME_VERSION, true );
+	wp_enqueue_script( 'handbook-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), HANDBOOK_THEME_VERSION, true );
+	wp_enqueue_script( 'hm-handbook-live-search',  get_stylesheet_directory_uri() . '/js/live-search.js', array('jquery'), HANDBOOK_THEME_VERSION );
+	wp_localize_script( 'hm-handbook-live-search', 'hm_handbook', $hm_handbook_data );
+
+	wp_enqueue_style( 'handbook-style', get_stylesheet_uri(), '', HANDBOOK_THEME_VERSION );
+	wp_enqueue_style( 'hm-handbook-live-search', get_stylesheet_directory_uri() . '/css/live-search.css', array( 'handbook-style' ), HANDBOOK_THEME_VERSION );
+	wp_enqueue_style( 'hm-handbook-print', get_template_directory_uri() . '/print.css', array( 'handbook-style' ), HANDBOOK_THEME_VERSION, 'print' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
 }
 add_action( 'wp_enqueue_scripts', 'handbook_scripts' );
 
