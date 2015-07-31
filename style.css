@@ -4,7 +4,7 @@ Theme URI: http://handbook.hmn.md/
 Author: Human Made Limited
 Author URI: http://hmn.md/
 Description: Based on _s :)
-Version: 1.1
+Version: 1.11
 License: GNU General Public License
 License URI: license.txt
 Text Domain: hmn-handbook
@@ -348,11 +348,11 @@ tbody tr:nth-child(odd) th {
 
 .site-main .page_item {
 	list-style: none;
-	padding: 5px 0;
 }
 
 .site-main .page_item a {
-	padding: 7px 30px 10px 10px;
+	padding: 8px;
+	display: inline-block;
 }
 
 .site-main .page_item a:hover {
