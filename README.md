@@ -8,9 +8,9 @@
 
 * Human Made is an organisation defined by it’s people, our culture is based around hiring great people and then giving them the support and freedom to do great work.
 
-## Github
+## GitHub
 
-* The majority of our projects use Github as a code repository and issue tracker. This document is no different. Github makes using Git incredibly friendly.
+* The majority of our projects use GitHub as a code repository and issue tracker. This document is no different. GitHub makes using Git incredibly friendly.
 
 ## About
 
@@ -25,4 +25,3 @@
 **1.0**
 
 * Initial document.
-
