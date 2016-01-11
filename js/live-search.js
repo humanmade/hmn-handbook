@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 	function search() {
 		var query_value = $('input#live-search').val();
 		$('span#live-search-string').html(query_value);
-		if (query_value !== '') {
+		if ( query_value !== '' ) {
 			$.ajax({
 				type: "POST",
 				url: hm_handbook.ajaxurl,
@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
 					$("#live-search-results").html(html);
 				}
 			});
-		} return false;    
+		} return false;
 	}
 
 	$("input#live-search").live("keyup", function(e) {
@@ -39,17 +39,29 @@ jQuery(document).ready(function($) {
 		}
 		
 	});
-	
+
 	var chosenResult = "";
-	
+
 	$("input#live-search").focus().keydown(function(e) {
-		
+
 		// Enter
 		if ( e.keyCode == 13 ) {
-			document.location.href = $('#live-search-results li.selected a').attr('href');
+			
+			var documentLink = $('#live-search-results li.selected a').attr('href');
+			var firstLink    = $('#live-search-results a:first').attr('href');
+
+			if ( typeof documentLink  != 'undefined') {
+				document.location.href = documentLink;
+				return;
+			}
+
+			if ( typeof firstlink     != 'undefined') {
+				document.location.href = firstLink;
+				return;
+			}
+
 			return false;
 		}
-		
 		// Key Down
 	    if ( e.keyCode == 40 ) { 
 	        if (chosenResult === "") {
