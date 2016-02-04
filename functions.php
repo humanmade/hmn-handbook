@@ -176,6 +176,28 @@ add_action( 'wp_head', 'hm_handbook_favicon' );
 add_action( 'admin_head', 'hm_handbook_favicon' );
 add_action( 'login_head', 'hm_handbook_favicon' );
 
+function hm_handbook_updated_send_email( $post_id ) {
+
+	// Will notify users if post / page is updated, even if content did not change
+	// TODO notify on content change only
+
+	// Ignore post revisions.
+	if ( wp_is_post_revision( $post_id ) ) {
+		return;
+	}
+
+	$post_title = get_the_title( $post_id );
+	$post_url   = get_permalink( $post_id );
+	$subject    = 'A Handbook article has been updated';
+
+	$message    = "The Handbook article: \"" . $post_title . "\", has been updated: " . $post_url;
+
+	// Send email
+	// TODO which users?
+	wp_mail( 'richard@hmn.md', $subject, $message );
+}
+add_action( 'save_post', 'hm_handbook_updated_send_email' ); 
+
 /**
  * Implement the Custom Header feature.
  */
