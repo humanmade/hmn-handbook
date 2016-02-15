@@ -55,7 +55,7 @@ jQuery(document).ready(function($) {
 				return;
 			}
 
-			if ( typeof firstlink     != 'undefined') {
+			if ( typeof firstLink     != 'undefined') {
 				document.location.href = firstLink;
 				return;
 			}
