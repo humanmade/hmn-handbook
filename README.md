@@ -1,6 +1,6 @@
 <table width="100%">
 	<tr>
- 		<td align="left" width="70">
+ 		<td colspan='2' align="left" width="70">
  			<strong>Human Made Handbook</strong><br />
  			Where Our Knowledge Lives.
  		</td>
