@@ -1,6 +1,19 @@
-# Human Made Handbook 
-
-**Where Our Knowledge Lives**
+<table width="100%">
+	<tr>
+ 		<td colspan='2' align="left" width="70">
+ 			<strong>Human Made Handbook</strong><br />
+ 			Where Our Knowledge Lives.
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			A <strong><a href="https://hmn.md/">Human Made</a></strong> project. Maintained by .
+ 		</td>
+ 		<td align="center">
+ 			<img src="https://hmn.md/content/themes/hmnmd/assets/images/hm-logo.svg" width="100" />
+ 		</td>
+ 	</tr>
+ </table>
 
 * This document serves simply to articulate some of the development strategies we’ve adopted as a team. It’s intended to be a living document – never perfect and always open to revision. Essentially, what we want most is to communicate agreed upon standards.
 
@@ -21,6 +34,10 @@
 * See [CONTRIBUTING.md](https://github.com/humanmade/hmn-handbook/blob/master/CONTRIBUTING.md)
 
 ## Changelog ##
+
+**1.01**
+
+* Add header.
 
 **1.0**
 
